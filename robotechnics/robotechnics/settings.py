@@ -1,31 +1,35 @@
 import os
+import sys
 from pathlib import Path
 
 from dotenv import load_dotenv
 
-load_dotenv()
+import environ
 
 BASE_DIR = Path(__file__).resolve().parent.parent
-BASE_URL = 'https://darleet.com'
-BASE_HOST = 'localhost'
 
+PYTEST = "pytest" in sys.argv[0]
+env_path = BASE_DIR / "local/test.env" if PYTEST else BASE_DIR / ".env"
 
-SECRET_KEY = os.environ.get('SECRET_KEY', 'summy-dummy key')
+env = environ.Env()
+environ.Env.read_env(env.str("ENV_PATH", str(env_path)))
 
-DEBUG = os.environ.get('DEBUG', 'False') == 'True'
+VERSION = env.str("VERSION", default="0.1.0")
+SECRET_KEY = env.str("SECRET_KEY", default="my-secret-key")
+LOCAL_MEDIA = env.bool("LOCAL_MEDIA", default=True)
+DEBUG = env.bool("DEBUG", default=False)
+if PYTEST:
+    DEBUG = False
 
-ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    'darleet.com',
-]
+ALLOWED_HOSTS = env.str("ALLOWED_HOSTS", default="*").split(",")
+CSRF_TRUSTED_ORIGINS = env.str(
+    "CSRF_TRUSTED_ORIGINS", default="https://darleet.com"
+).split(",")
 
-CSRF_TRUSTED_ORIGINS = ['https://darleet.com', 'http://darleet.com', 'http://127.0.0.1:8000']
-CSRF_COOKIE_DOMAIN = 'darleet.com'
-
-INTERNAL_IPS = [
-    '127.0.0.1',
-]
+CORS_ORIGIN_ALLOW_ALL = env.bool("CORS_ORIGIN_ALLOW_ALL", default=True)
+CORS_ALLOWED_ORIGINS = env.str(
+    "CORS_ALLOWED_ORIGINS", default="https://darleet.com"
+).split(",")
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -121,25 +125,26 @@ USE_I18N = True
 USE_TZ = True
 
 
-MEDIA_ROOT = BASE_DIR / 'media'
-MEDIA_URL = BASE_URL + '/media/'
+STATIC_URL = "/dj_static/"
+STATIC_ROOT = BASE_DIR / "static"
+if LOCAL_MEDIA:
+    MEDIA_URL = "/dj_media/"
+    MEDIA_ROOT = BASE_DIR / "dj_media"
+    STATIC_ROOT = BASE_DIR / "dj_static"
 
-STATIC_URL = '/django-static/'
-STATICFILES_DIRS = [
-    BASE_DIR / 'static_dev',
-]
-STATIC_ROOT = BASE_DIR / 'django-static'
+STATICFILES_FINDERS = (
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+)
 
+DATA_UPLOAD_MAX_MEMORY_SIZE = env.int(
+    "DATA_UPLOAD_MAX_MEMORY_SIZE", default=1024 * 1024 * 5  # 5 MB
+)
+FILE_UPLOAD_MAX_MEMORY_SIZE = env.int(
+    "FILE_UPLOAD_MAX_MEMORY_SIZE", default=1024 * 1024 * 500  # 500 MB
+)
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-CORS_ORIGIN_ALLOW_ALL = True
-CORS_ALLOWED_ORIGINS = [
-    'https://localhost',
-    'http://localhost',
-    'http://darleet.com',
-    'https://darleet.com',
-]
 
 CORS_EXPOSE_HEADERS = ['Content-Type', 'X-CSRFToken']
 CORS_ALLOW_CREDENTIALS = True
