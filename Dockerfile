@@ -1,7 +1,8 @@
 FROM python:3.12-alpine AS poetry
 RUN pip install poetry
 WORKDIR /app
-COPY pyproject.toml poetry.lock .
+COPY pyproject.toml .
+COPY poetry.lock .
 RUN poetry export -f requirements.txt --output requirements.txt
 
 FROM python:3.12-alpine
