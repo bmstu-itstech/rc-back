@@ -20,4 +20,4 @@ COPY . .
 RUN python manage.py collectstatic
 RUN python manage.py migrate
 
-ENTRYPOINT ["./manage.py", "runserver", "0.0.0.0:8000"]
+CMD ["./manage.py", "runserver", "0.0.0.0:8000"]
