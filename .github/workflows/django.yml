@@ -39,6 +39,5 @@ jobs:
         pip install -r ci_requirements.txt
     - name: Run flake8
       run: |
-        cd Django/
         flake8 rs_back/
       
