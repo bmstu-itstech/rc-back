@@ -13,7 +13,7 @@ environ.Env.read_env(env.str("ENV_PATH", str(env_path)))
 
 VERSION = env.str("VERSION", default="0.1.0")
 SECRET_KEY = env.str("SECRET_KEY", default="my-secret-key")
-LOCAL_MEDIA = env.bool("LOCAL_MEDIA", default=True)
+LOCAL_MEDIA = env.bool("LOCAL_MEDIA", default=False)
 DEBUG = env.bool("DEBUG", default=False)
 if PYTEST:
     DEBUG = False
@@ -125,11 +125,9 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = "/dj_static/"
-STATIC_ROOT = BASE_DIR / "static"
-if LOCAL_MEDIA:
-    MEDIA_URL = "/dj_media/"
-    MEDIA_ROOT = BASE_DIR / "dj_media"
-    STATIC_ROOT = BASE_DIR / "dj_static"
+MEDIA_URL = "/dj_media/"
+STATIC_ROOT = BASE_DIR / "dj_static"
+MEDIA_ROOT = BASE_DIR / "dj_media"
 
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
