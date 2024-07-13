@@ -7,7 +7,7 @@ from rs_back.achievement.models import Achievement
 class AchievementTestCase(TestCase):
     def setUp(self):
         Achievement.objects.create(
-            name='достижение1',
+            title='достижение1',
             description='описание1',
             photo_album_url='https://url.com',
             link_to_media='https://url.com',
@@ -20,7 +20,7 @@ class AchievementTestCase(TestCase):
 
     def test_create_good(self):
         item = Achievement.objects.create(
-            name='достижение2',
+            title='достижение2',
             description='описание2',
             photo_album_url='https://url2.com',
             link_to_media='https://url2.com',
@@ -32,7 +32,7 @@ class AchievementTestCase(TestCase):
 
     def test_create_bad(self):
         item = Achievement.objects.create(
-            name='достижение3',
+            title='достижение3',
             description='описание3',
             photo_album_url='https://url3.com',
             link_to_media='text',

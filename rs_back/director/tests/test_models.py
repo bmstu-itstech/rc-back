@@ -7,9 +7,9 @@ from rs_back.director.models import Director
 class DirectorTestCase(TestCase):
     def setUp(self):
         Director.objects.create(
-            name='director1',
+            fio='director1',
             email='abc@mail.ru',
-            post='post1',
+            role='post1',
             photo='1.png',
         ).save()
 
@@ -19,9 +19,9 @@ class DirectorTestCase(TestCase):
 
     def test_create_good(self):
         item = Director.objects.create(
-            name='director2',
+            fio='director2',
             email='abc2@mail.ru',
-            post='post2',
+            role='post2',
             photo='2.png',
         )
         item.full_clean()
@@ -30,9 +30,9 @@ class DirectorTestCase(TestCase):
 
     def test_create_bad(self):
         item = Director.objects.create(
-            name='director3',
+            fio='director3',
             email='mail.ru',
-            post='post3',
+            role='post3',
             photo='3.png',
         )
         try:
@@ -41,9 +41,9 @@ class DirectorTestCase(TestCase):
         except ValidationError:
             item.delete()
         item = Director.objects.create(
-            name='director4',
+            fio='director4',
             email='abc4',
-            post='post4',
+            role='post4',
             photo='4.png',
         )
         try:
@@ -52,7 +52,7 @@ class DirectorTestCase(TestCase):
         except ValidationError:
             item.delete()
         item = Director.objects.create(
-            name='director5',
+            fio='director5',
             email='abc5@mail.ru',
             photo='5.png',
         )

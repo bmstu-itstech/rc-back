@@ -7,9 +7,9 @@ from rs_back.news.models import News
 class NewsTestCase(TestCase):
     def setUp(self):
         News.objects.create(
-            name='news1',
+            title='news1',
             description='description1',
-            link_to_news='https://url.com',
+            new_url='https://url.com',
             photo='1.png',
         ).save()
 
@@ -19,9 +19,9 @@ class NewsTestCase(TestCase):
 
     def test_create_good(self):
         item = News.objects.create(
-            name='news2',
+            title='news2',
             description='description2',
-            link_to_news='https://url.com',
+            new_url='https://url.com',
             photo='2.png',
         )
         item.full_clean()
@@ -30,9 +30,9 @@ class NewsTestCase(TestCase):
 
     def test_create_bad(self):
         item = News.objects.create(
-            name='news3',
+            title='news3',
             description='description3',
-            link_to_news='https://url',
+            new_url='https://url',
             photo='3.png',
         )
         try:
@@ -42,7 +42,7 @@ class NewsTestCase(TestCase):
             item.delete()
         item = News.objects.create(
             description='description4',
-            link_to_news='https://url.com',
+            new_url='https://url.com',
             photo='4.png',
         )
         try:
