@@ -20,10 +20,10 @@ jobs:
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r Django/ci_requirements.txt
+        pip install -r ci_requirements.txt
     - name: Run Tests
       run: |
-        python Django/robotechnics/manage.py test
+        python manage.py test
 
   codestyle:
     runs-on: ubuntu-latest
@@ -36,9 +36,9 @@ jobs:
     - name: Install Dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install -r Django/ci_requirements.txt
+        pip install -r ci_requirements.txt
     - name: Run flake8
       run: |
         cd Django/
-        flake8 robotechnics/
+        flake8 rs_back/
       
