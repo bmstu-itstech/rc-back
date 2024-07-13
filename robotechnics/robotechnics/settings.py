@@ -7,6 +7,8 @@ load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 BASE_URL = 'https://darleet.com'
+BASE_HOST = 'localhost'
+
 
 SECRET_KEY = os.environ.get('SECRET_KEY', 'summy-dummy key')
 
@@ -131,7 +133,7 @@ STATIC_ROOT = BASE_DIR / 'django-static'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-CORS_ORIGIN_ALLOW_ALL = False
+CORS_ORIGIN_ALLOW_ALL = True
 CORS_ALLOWED_ORIGINS = [
     'https://localhost',
     'http://localhost',
@@ -141,14 +143,3 @@ CORS_ALLOWED_ORIGINS = [
 
 CORS_EXPOSE_HEADERS = ['Content-Type', 'X-CSRFToken']
 CORS_ALLOW_CREDENTIALS = True
-
-Paginator_Size_Constants = {
-    'questionnaires': 8,
-    'hardaton_projects': 6,
-    'news': 6,
-    'partners': 4,
-    'supervisors': 4,
-    'classic_events': 6,
-    'hardatons': 2,
-    'hardaton_partners': 5,
-}
