@@ -10,13 +10,15 @@ class HardathonForm(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'photo': FileInput(
-                attrs={'style':
-                           'border: 1px solid #353535; '
-                           'padding: 5em; border-radius: 4px'}),
+                attrs={
+                    'style': 'border: 1px solid #353535; padding: 5em; border-radius: 4px',
+                }
+            ),
             'organizers_photo': FileInput(
-                attrs={'style':
-                           'border: 1px solid #353535; '
-                           'padding: 5em; border-radius: 4px'}),
+                attrs={
+                    'style': 'border: 1px solid #353535; padding: 5em; border-radius: 4px',
+                }
+            ),
         }
 
 
@@ -25,7 +27,9 @@ class ProjectForm(forms.ModelForm):
         model = Project
         fields = '__all__'
         widgets = {
-            'photo': FileInput(attrs={'style':
-                                          'border: 1px solid #353535; '
-                                          'padding: 5em; border-radius: 4px'}),
+            'photo': FileInput(
+                attrs={
+                    'style': 'border: 1px solid #353535; padding: 5em; border-radius: 4px'
+                }
+            ),
         }
