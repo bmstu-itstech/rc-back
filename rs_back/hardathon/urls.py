@@ -1,4 +1,5 @@
 from django.urls import path
+
 from rs_back.hardathon.router import (HardathonViewSet,
                                       HardathonProjectsViewSet,
                                       HardathonPartnersViewSet)

@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from rs_back.partners.forms import PartnerForm
 from rs_back.partners.models import Partner
 

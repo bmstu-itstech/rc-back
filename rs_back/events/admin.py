@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from rs_back.events.forms import ClassicEventForm
 from rs_back.events.models import ClassicEvent, Questionnaire
 
@@ -24,4 +25,5 @@ class QuestionnaireAdmin(admin.ModelAdmin):
 
     def classic_event_title(self, obj):
         return obj.classic_event.title
+
     classic_event_title.short_description = 'классическое мероприятие'

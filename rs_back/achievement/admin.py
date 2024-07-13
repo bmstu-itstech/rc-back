@@ -1,6 +1,7 @@
+from django.contrib import admin
+
 from rs_back.achievement.forms import AchievementForm
 from rs_back.achievement.models import Achievement
-from django.contrib import admin
 
 
 @admin.register(Achievement)

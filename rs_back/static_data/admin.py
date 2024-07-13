@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from rs_back.static_data.models import StaticData
 
 

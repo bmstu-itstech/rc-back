@@ -1,6 +1,7 @@
-from rs_back.director.models import Director
 from django.core.exceptions import ValidationError
 from django.test import TestCase
+
+from rs_back.director.models import Director
 
 
 class DirectorTestCase(TestCase):

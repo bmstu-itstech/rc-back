@@ -1,7 +1,8 @@
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from rs_back.achievement.models import Achievement
 from rs_back.achievement.serializers import AchievementSerializer
-from rest_framework.views import APIView
-from rest_framework.response import Response
 
 
 class AchievementViewSet(APIView):

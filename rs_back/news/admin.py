@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from rs_back.news.forms import NewsForm
 from rs_back.news.models import News
 

@@ -1,6 +1,8 @@
 from datetime import datetime
+
 from django.core.exceptions import ValidationError
 from django.test import TestCase
+
 from rs_back.events.models import ClassicEvent, Questionnaire
 
 
@@ -35,9 +37,9 @@ class ModelTests(TestCase):
         for group in group_endpoints:
             Questionnaire.objects.all().delete()
             with self.subTest(
-                 f'This group must fail validation'
-                 f' - "{group}"',
-                 ):
+                    f'This group must fail validation'
+                    f' - "{group}"',
+            ):
                 with self.assertRaises(ValidationError):
                     self.questionnaire = Questionnaire(
                         searcher_fio='Иванов Иван Иванович',
@@ -66,10 +68,9 @@ class ModelTests(TestCase):
         for group in group_endpoints:
             Questionnaire.objects.all().delete()
             with self.subTest(
-                 f'The model with such group must be created'
-                 f' - "{group}"',
-                 ):
-
+                    f'The model with such group must be created'
+                    f' - "{group}"',
+            ):
                 self.questionnaire = Questionnaire(
                     searcher_fio='Иванов Иван Иванович',
                     searcher_bmstu_group=group,
@@ -96,10 +97,9 @@ class ModelTests(TestCase):
         for full_name in full_name_endpoints:
             Questionnaire.objects.all().delete()
             with self.subTest(
-                 f'The model with such full name must be created'
-                 f' - "{full_name}"',
-                 ):
-
+                    f'The model with such full name must be created'
+                    f' - "{full_name}"',
+            ):
                 self.questionnaire = Questionnaire(
                     searcher_fio=full_name,
                     searcher_bmstu_group='ИУ9-12Б',
@@ -126,9 +126,9 @@ class ModelTests(TestCase):
         for full_name in full_name_endpoints:
             Questionnaire.objects.all().delete()
             with self.subTest(
-                 f'This full name must fail validation'
-                 f' - "{full_name}"',
-                 ):
+                    f'This full name must fail validation'
+                    f' - "{full_name}"',
+            ):
                 with self.assertRaises(ValidationError):
                     self.questionnaire = Questionnaire(
                         searcher_fio=full_name,

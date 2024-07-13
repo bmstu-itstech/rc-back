@@ -1,7 +1,8 @@
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from rs_back.news.models import News
 from rs_back.news.serializers import NewsSerializer
-from rest_framework.views import APIView
-from rest_framework.response import Response
 
 
 class NewsViewSet(APIView):

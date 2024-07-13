@@ -1,12 +1,13 @@
 from django.shortcuts import get_object_or_404
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from rs_back.hardathon.models import Hardathon, Project
 from rs_back.hardathon.serializers import (DetailProjectSerializer,
                                            HardathonByIdSerializer,
                                            HardathonSerializer,
                                            HardathonPartnersSerializer,
                                            HardathonProjectsSerializer)
-from rest_framework.response import Response
-from rest_framework.views import APIView
 
 
 class HardathonViewSet(APIView):

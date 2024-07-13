@@ -1,5 +1,6 @@
-from rs_back.core.models import ImageBaseModel
 from django.db import models
+
+from rs_back.core.models import ImageBaseModel
 
 
 class Achievement(ImageBaseModel):

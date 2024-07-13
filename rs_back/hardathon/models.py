@@ -1,8 +1,9 @@
-from rs_back.core.models import EventBaseModel, ImageBaseModel
 from django.db import models
 from django.utils.safestring import mark_safe
-from rs_back.partners.models import Partner
 from sorl.thumbnail import get_thumbnail
+
+from rs_back.core.models import EventBaseModel, ImageBaseModel
+from rs_back.partners.models import Partner
 
 
 class Hardathon(EventBaseModel):

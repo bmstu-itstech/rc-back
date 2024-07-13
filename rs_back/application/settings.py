@@ -90,7 +90,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'rs_back.application.wsgi.application'
 
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
@@ -98,26 +97,24 @@ DATABASES = {
     },
 }
 
-
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.'
-        'UserAttributeSimilarityValidator',
+                'UserAttributeSimilarityValidator',
     },
     {
         'NAME': 'django.contrib.auth.password_validation.'
-        'MinimumLengthValidator',
+                'MinimumLengthValidator',
     },
     {
         'NAME': 'django.contrib.auth.password_validation.'
-        'CommonPasswordValidator',
+                'CommonPasswordValidator',
     },
     {
         'NAME': 'django.contrib.auth.password_validation.'
-        'NumericPasswordValidator',
+                'NumericPasswordValidator',
     },
 ]
-
 
 LANGUAGE_CODE = 'ru-RU'
 
@@ -126,7 +123,6 @@ TIME_ZONE = 'Europe/Moscow'
 USE_I18N = True
 
 USE_TZ = True
-
 
 STATIC_URL = "/dj_static/"
 STATIC_ROOT = BASE_DIR / "static"

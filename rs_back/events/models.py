@@ -1,5 +1,6 @@
-from rs_back.core.models import EventBaseModel
 from django.db import models
+
+from rs_back.core.models import EventBaseModel
 from rs_back.events.validators import ValidateFullName, ValidateGroup
 from rs_back.partners.models import Partner
 

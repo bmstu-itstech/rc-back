@@ -1,5 +1,6 @@
 from django import forms
 from django.forms import FileInput, Textarea, TextInput, URLInput
+
 from rs_back.news.models import News
 
 
@@ -8,6 +9,7 @@ class NewsForm(forms.ModelForm):
     @brief Форма для админ панели новостей
     @details Нужна для того, чтобы расширить зону загрузки файлов
     """
+
     class Meta:
         model = News
         fields = ('photo', 'title', 'description', 'new_url')

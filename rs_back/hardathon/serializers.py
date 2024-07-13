@@ -1,6 +1,7 @@
+from rest_framework import serializers
+
 from rs_back.hardathon.models import Hardathon, Project
 from rs_back.partners.models import Partner
-from rest_framework import serializers
 
 
 class HardathonSerializer(serializers.ModelSerializer):
@@ -8,6 +9,7 @@ class HardathonSerializer(serializers.ModelSerializer):
     @brief Сериализатор
     @details Нужен для преобразовывания сложных типов данных в json
     """
+
     class Meta:
         model = Hardathon
         fields = ('id', 'title', 'photo',)
@@ -18,6 +20,7 @@ class HardathonByIdSerializer(serializers.ModelSerializer):
     @brief Сериализатор для одной записи
     @details Нужен для преобразовывания сложных типов данных в json
     """
+
     class Meta:
         model = Hardathon
         fields = ('id', 'title', 'photo', 'photo_album_url',
@@ -33,6 +36,7 @@ class DetailProjectSerializer(serializers.ModelSerializer):
     @brief Сериализатор
     @details Нужен для преобразовывания сложных типов данных в json
     """
+
     class Meta:
         model = Project
         fields = ('id', 'title', 'description', 'competition_rules',
@@ -44,6 +48,7 @@ class HardathonProjectsSerializer(serializers.ModelSerializer):
     @brief Сериализатор
     @details Нужен для преобразовывания сложных типов данных в json
     """
+
     class Meta:
         model = Project
         fields = ('id', 'title',)
@@ -54,6 +59,7 @@ class HardathonPartnersSerializer(serializers.ModelSerializer):
     @brief Сериализатор
     @details Нужен для преобразовывания сложных типов данных в json
     """
+
     class Meta:
         model = Partner
         fields = ('id', 'title', 'link', 'photo')

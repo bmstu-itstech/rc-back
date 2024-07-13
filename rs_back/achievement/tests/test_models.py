@@ -1,6 +1,7 @@
-from rs_back.achievement.models import Achievement
 from django.core.exceptions import ValidationError
 from django.test import TestCase
+
+from rs_back.achievement.models import Achievement
 
 
 class AchievementTestCase(TestCase):

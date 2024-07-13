@@ -1,6 +1,7 @@
-from rs_back.director.models import Director
 from django import forms
 from django.forms import EmailInput, FileInput, TextInput
+
+from rs_back.director.models import Director
 
 
 class DirectorForm(forms.ModelForm):
@@ -8,6 +9,7 @@ class DirectorForm(forms.ModelForm):
     @brief Форма для админ панели руководителей
     @details Нужна для того, чтобы расширить зону загрузки файлов
     """
+
     class Meta:
         model = Director
         fields = ('photo', 'fio', 'email', 'role')

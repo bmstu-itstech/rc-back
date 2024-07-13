@@ -1,5 +1,6 @@
 from django import forms
 from django.forms import FileInput
+
 from rs_back.hardathon.models import Hardathon, Project
 
 
@@ -10,12 +11,12 @@ class HardathonForm(forms.ModelForm):
         widgets = {
             'photo': FileInput(
                 attrs={'style':
-                       'border: 1px solid #353535; '
-                       'padding: 5em; border-radius: 4px'}),
+                           'border: 1px solid #353535; '
+                           'padding: 5em; border-radius: 4px'}),
             'organizers_photo': FileInput(
                 attrs={'style':
-                       'border: 1px solid #353535; '
-                       'padding: 5em; border-radius: 4px'}),
+                           'border: 1px solid #353535; '
+                           'padding: 5em; border-radius: 4px'}),
         }
 
 
@@ -25,6 +26,6 @@ class ProjectForm(forms.ModelForm):
         fields = '__all__'
         widgets = {
             'photo': FileInput(attrs={'style':
-                                      'border: 1px solid #353535; '
-                                      'padding: 5em; border-radius: 4px'}),
+                                          'border: 1px solid #353535; '
+                                          'padding: 5em; border-radius: 4px'}),
         }

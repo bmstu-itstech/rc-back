@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from rs_back.hardathon.forms import HardathonForm, ProjectForm
 from rs_back.hardathon.models import Hardathon, Project
 
@@ -16,6 +17,7 @@ class ProjectAdmin(admin.ModelAdmin):
 
     def hardathon_title(self, obj):
         return obj.hardathon.title
+
     hardathon_title.short_description = 'хардатон'
 
 

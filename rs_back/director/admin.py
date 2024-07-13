@@ -1,6 +1,7 @@
+from django.contrib import admin
+
 from rs_back.director.forms import DirectorForm
 from rs_back.director.models import Director
-from django.contrib import admin
 
 
 @admin.register(Director)

@@ -13,9 +13,9 @@ schema_view = get_schema_view(
         default_version='v0',
         description='API сайта',
     ),
-    patterns=[path('api/v0/', include('rs_back.application.urls.api')),],
+    patterns=[path('api/v0/', include('rs_back.application.urls.api')), ],
     public=True,
-    permission_classes=[permissions.AllowAny,],
+    permission_classes=[permissions.AllowAny, ],
 )
 
 urlpatterns = [
@@ -31,8 +31,8 @@ if settings.DEBUG:
         path('api/swagger/', TemplateView.as_view(
             template_name='swagger/swagger.html',
             extra_context={'schema_url': 'openapi-schema'}
-            ), name='swagger'
-        ),
+        ), name='swagger'
+             ),
         path(
             'api/swagger<format>/', schema_view.without_ui(cache_timeout=0),
             name='schema-json'

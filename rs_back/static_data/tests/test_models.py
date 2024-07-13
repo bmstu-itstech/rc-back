@@ -1,5 +1,6 @@
 from django.core.exceptions import ValidationError
 from django.test import TestCase
+
 from rs_back.static_data.models import StaticData
 
 

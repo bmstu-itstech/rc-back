@@ -1,6 +1,7 @@
+from rest_framework import routers, viewsets
+
 from rs_back.director.models import Director
 from rs_back.director.serializers import DirectorSerializer
-from rest_framework import routers, viewsets
 
 
 class DirectorViewSet(viewsets.ModelViewSet):

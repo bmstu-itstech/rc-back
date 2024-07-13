@@ -38,4 +38,3 @@ if settings.LOCAL_MEDIA:
             {"document_root": settings.STATIC_ROOT},
         ),
     ]
-

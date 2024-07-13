@@ -1,11 +1,12 @@
 from django.shortcuts import get_object_or_404
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from rs_back.events.models import ClassicEvent, Questionnaire
 from rs_back.events.serializers import (ClassicEventByIdSerializer,
                                         ClassicEventsSerializer,
                                         QuestionnaireByIdSerializer,
                                         QuestionnairesSerializer)
-from rest_framework.response import Response
-from rest_framework.views import APIView
 
 
 class ClassicEventViewSet(APIView):
