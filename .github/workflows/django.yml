@@ -59,8 +59,3 @@ jobs:
           git stash;
           git checkout main;
           git pull;
-          poetry env use 3.12;
-          poetry install --no-root;
-          poetry run python manage.py migrate;
-          poetry run python manage.py collectstatic;
-          poetry run python manage.py runserver 0.0.0.0:8000;
