@@ -55,7 +55,8 @@ jobs:
         key: ${{ secrets.SSH_KEY }}
         script_stop: true
         script: |
-          cd ${{ secrets.PROJECT_FOLDER }};
+          cd /home/tech/rs-back;
+          git stash;
           git checkout main;
           git pull;
           poetry env use ${{ matrix.python-version }};
