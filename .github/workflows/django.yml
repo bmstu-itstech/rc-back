@@ -59,7 +59,7 @@ jobs:
           git stash;
           git checkout main;
           git pull;
-          poetry env use ${{ matrix.python-version }};
+          poetry env use 3.12;
           poetry install --no-root;
           poetry run python manage.py migrate;
           poetry run python manage.py collectstatic;
