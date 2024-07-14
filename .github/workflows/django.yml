@@ -59,6 +59,11 @@ jobs:
         CSRF_TRUSTED_ORIGINS: ${{ env.CSRF_TRUSTED_ORIGINS }}
         CORS_ORIGIN_ALLOW_ALL: False
         CORS_ORIGIN_WHITELIST: ${{ env.CORS_ORIGIN_WHITELIST }}
+        POSTGRES_DB: ${{ env.POSTGRES_DB }}
+        POSTGRES_USER: ${{ secrets.POSTGRES_USER }}
+        POSTGRES_PASSWORD: ${{ secrets.POSTGRES_PASSWORD }}
+        POSTGRES_HOST: ${{ secrets.POSTGRES_HOST }}
+        POSTGRES_PORT: ${{ secrets.POSTGRES_PORT }}
       with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}

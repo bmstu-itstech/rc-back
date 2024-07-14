@@ -13,7 +13,6 @@ environ.Env.read_env(env.str("ENV_PATH", str(env_path)))
 
 VERSION = env.str("VERSION", default="0.1.0")
 SECRET_KEY = env.str("SECRET_KEY", default="my-secret-key")
-LOCAL_MEDIA = env.bool("LOCAL_MEDIA", default=False)
 DEBUG = env.bool("DEBUG", default=False)
 if PYTEST:
     DEBUG = False
@@ -91,10 +90,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'rs_back.application.wsgi.application'
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    },
+    "default": {
+        "ENGINE": "django.db.backends.postgresql",
+        "NAME": env.str("POSTGRES_DB", default="postgres"),
+        "USER": env.str("POSTGRES_USER", default="postgres"),
+        "PASSWORD": env.str("POSTGRES_PASSWORD", default="postgres"),
+        "HOST": env.str("POSTGRES_HOST", default="db"),
+        "PORT": env.str("POSTGRES_PORT", default="5432"),
+    }
 }
 
 AUTH_PASSWORD_VALIDATORS = [
