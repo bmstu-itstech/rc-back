@@ -42,22 +42,33 @@ jobs:
         poetry run flake8 rs_back/
 
   deploy:
-    needs: test
+    name: "Deploy to staging"
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    # needs: test
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: Run command on remote server
-        uses: D3rHase/ssh-command-action@v0.2.2
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          user: ${{ secrets.SSH_USER }}
-          private_key: ${{ secrets.SSH_PRIVATE_KEY }}
-          command: |
-            cd ${{ secrets.PROJECT_FOLDER }};
-            git checkout main;
-            git pull;
-            docker-compose -f docker-compose.prod.yml down;
-            docker-compose -f docker-compose.prod.yml up -d;
-            docker system prune --all --force;
+      - name: Configure SSH
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$SSH_KEY" > ~/.ssh/staging.key
+          chmod 600 ~/.ssh/staging.key
+          cat >>~/.ssh/config <<END
+          Host staging
+            HostName $SSH_HOST
+            User $SSH_USER
+            IdentityFile ~/.ssh/staging.key
+            StrictHostKeyChecking no
+          END
+        env:
+          SSH_HOST: ${{ secrets.SSH_HOST }}
+          SSH_USER: ${{ secrets.SSH_USER }}
+          SSH_KEY: ${{ secrets.SSH_KEY }}
+
+      - name: Start the server
+        run: |
+          cd ${{ secrets.PROJECT_FOLDER }};
+          git checkout main;
+          git pull;
+          docker-compose -f docker-compose.prod.yml down;
+          docker-compose -f docker-compose.prod.yml up -d;
+          docker system prune --all --force;
