@@ -23,7 +23,7 @@ CSRF_TRUSTED_ORIGINS = env.str(
     "CSRF_TRUSTED_ORIGINS", default="https://darleet.com"
 ).split(",")
 
-CORS_ORIGIN_ALLOW_ALL = env.bool("CORS_ORIGIN_ALLOW_ALL", default=True)
+CORS_ORIGIN_ALLOW_ALL = env.bool("CORS_ORIGIN_ALLOW_ALL", default=False)
 CORS_ALLOWED_ORIGINS = env.str(
     "CORS_ALLOWED_ORIGINS", default="https://darleet.com"
 ).split(",")

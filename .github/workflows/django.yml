@@ -49,6 +49,16 @@ jobs:
     steps:
     - name: Deploy
       uses: appleboy/ssh-action@v0.1.10
+      env:
+        DJANGO_SUPERUSER_USERNAME: ${{ secrets.DJANGO_SUPERUSER_USERNAME }}
+        DJANGO_SUPERUSER_PASSWORD: ${{ secrets.DJANGO_SUPERUSER_PASSWORD }}
+        DJANGO_SUPERUSER_EMAIL: ${{ secrets.DJANGO_SUPERUSER_EMAIL }}
+        DEBUG: False
+        SECRET_KEY: ${{ secrets.DJANGO_SECRET_KEY }}
+        ALLOWED_HOSTS: ${{ env.ALLOWED_HOSTS }}
+        CSRF_TRUSTED_ORIGINS: ${{ env.CSRF_TRUSTED_ORIGINS }}
+        CORS_ORIGIN_ALLOW_ALL: False
+        CORS_ORIGIN_WHITELIST: ${{ env.CORS_ORIGIN_WHITELIST }}
       with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
