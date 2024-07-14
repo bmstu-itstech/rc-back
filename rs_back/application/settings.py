@@ -90,15 +90,22 @@ TEMPLATES = [
 WSGI_APPLICATION = 'rs_back.application.wsgi.application'
 
 DATABASES = {
-    "default": {
+    "tests": {
+        "ENGINE": "django.db.backends.sqlite3",
+        'NAME': BASE_DIR / 'db.sqlite3',
+    },
+    "main": {
         "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": env.str("POSTGRES_DB", default="postgres"),
         "USER": env.str("POSTGRES_USER", default="postgres"),
         "PASSWORD": env.str("POSTGRES_PASSWORD", default="postgres"),
         "HOST": env.str("POSTGRES_HOST", default="127.0.0.1"),
         "PORT": env.str("POSTGRES_PORT", default="5432"),
-    }
+    },
 }
+
+default_db = "tests" if PYTEST else "main"
+DATABASES["default"] = DATABASES.get(default_db)
 
 AUTH_PASSWORD_VALIDATORS = [
     {
