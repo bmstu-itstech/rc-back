@@ -58,6 +58,5 @@ jobs:
           cd ${{ secrets.PROJECT_FOLDER }};
           git checkout main;
           git pull;
-          docker-compose -f docker-compose.prod.yml down;
-          docker-compose -f docker-compose.prod.yml up -d;
-          docker system prune --all --force;
+          docker compose -f docker-compose.prod.yml down;
+          docker compose -f docker-compose.prod.yml up -d;
