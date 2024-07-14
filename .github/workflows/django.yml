@@ -48,7 +48,7 @@ jobs:
     needs: test
     steps:
     - name: Deploy
-      uses: appleboy/ssh-action@v0.1.10
+      uses: appleboy/ssh-action@v1.0.3
       with:
         host: ${{ secrets.SSH_HOST }}
         username: ${{ secrets.SSH_USER }}
