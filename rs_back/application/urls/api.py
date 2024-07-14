@@ -17,24 +17,4 @@ urlpatterns = [
     path('partners/', include('rs_back.partners.urls')),
     path('', include('rs_back.hardathon.urls')),
     path('', include('rs_back.events.urls')),
-
 ]
-
-if settings.DEBUG and not settings.LOCAL_MEDIA:
-    urlpatterns += static(
-        settings.STATIC_URL, document_root=settings.STATIC_ROOT
-    )
-
-if settings.LOCAL_MEDIA:
-    urlpatterns += [
-        re_path(
-            r"^dj_media/(?P<path>.*)$",
-            serve,
-            {"document_root": settings.MEDIA_ROOT},
-        ),
-        re_path(
-            r"^dj_static/(?P<path>.*)$",
-            serve,
-            {"document_root": settings.STATIC_ROOT},
-        ),
-    ]

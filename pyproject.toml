@@ -39,6 +39,7 @@ sorl-thumbnail = "12.10.0"
 sqlparse = "0.4.4"
 typing-extensions = "4.8.0"
 uritemplate = "4.1.1"
+psycopg = "^3.2.1"
 
 
 [build-system]

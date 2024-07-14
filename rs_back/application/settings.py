@@ -73,7 +73,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            'core/templates'
+            'rs_back/core/templates'
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -91,11 +91,11 @@ WSGI_APPLICATION = 'rs_back.application.wsgi.application'
 
 DATABASES = {
     "default": {
-        "ENGINE": "django.db.backends.postgresql",
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
         "NAME": env.str("POSTGRES_DB", default="postgres"),
         "USER": env.str("POSTGRES_USER", default="postgres"),
         "PASSWORD": env.str("POSTGRES_PASSWORD", default="postgres"),
-        "HOST": env.str("POSTGRES_HOST", default="db"),
+        "HOST": env.str("POSTGRES_HOST", default="127.0.0.1"),
         "PORT": env.str("POSTGRES_PORT", default="5432"),
     }
 }
@@ -127,10 +127,10 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = "/dj_static/"
-MEDIA_URL = "/dj_media/"
-STATIC_ROOT = BASE_DIR / "dj_static"
-MEDIA_ROOT = BASE_DIR / "dj_media"
+STATIC_URL = "/django_static/"
+MEDIA_URL = "/django_media/"
+STATIC_ROOT = BASE_DIR / "django_static"
+MEDIA_ROOT = BASE_DIR / "django_media"
 
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
