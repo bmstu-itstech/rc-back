@@ -1,9 +1,7 @@
 from django.conf import settings
-from django.conf.urls.static import static
 from django.core.handlers.wsgi import WSGIRequest
 from django.http import JsonResponse
-from django.urls import include, path, re_path
-from django.views.static import serve
+from django.urls import include, path
 
 
 def version(_: WSGIRequest) -> JsonResponse:

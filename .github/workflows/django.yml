@@ -35,7 +35,7 @@ jobs:
 
     - name: Run Tests
       run: |
-        poetry run pytest
+        poetry run python manage.py test rs_back
 
     - name: Run Code Style
       run: |
@@ -50,6 +50,7 @@ jobs:
     - name: Deploy
       uses: appleboy/ssh-action@v0.1.10
       env:
+        DJANGO_DB: main
         DJANGO_SUPERUSER_USERNAME: ${{ secrets.DJANGO_SUPERUSER_USERNAME }}
         DJANGO_SUPERUSER_PASSWORD: ${{ secrets.DJANGO_SUPERUSER_PASSWORD }}
         DJANGO_SUPERUSER_EMAIL: ${{ secrets.DJANGO_SUPERUSER_EMAIL }}

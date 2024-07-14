@@ -104,7 +104,7 @@ DATABASES = {
     },
 }
 
-default_db = "tests" if PYTEST else "main"
+default_db = env.str("DJANGO_DB", default="tests")
 DATABASES["default"] = DATABASES.get(default_db)
 
 AUTH_PASSWORD_VALIDATORS = [
