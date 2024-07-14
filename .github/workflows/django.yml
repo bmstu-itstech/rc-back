@@ -35,7 +35,7 @@ jobs:
 
     - name: Run Tests
       run: |
-        poetry run python manage.py test rs_back
+        poetry run pytest
 
     - name: Run Code Style
       run: |
