@@ -45,7 +45,7 @@ jobs:
     name: "Deploy to staging"
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    # needs: test
+    needs: test
     steps:
       - name: Configure SSH
         run: |
@@ -65,10 +65,10 @@ jobs:
           SSH_KEY: ${{ secrets.SSH_KEY }}
 
       - name: Start the server
-        run: |
+        run: ssh staging '
           cd ${{ secrets.PROJECT_FOLDER }};
           git checkout main;
           git pull;
           docker-compose -f docker-compose.prod.yml down;
           docker-compose -f docker-compose.prod.yml up -d;
-          docker system prune --all --force;
+          docker system prune --all --force;'
