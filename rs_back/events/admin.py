@@ -19,7 +19,7 @@ class QuestionnaireAdmin(admin.ModelAdmin):
         'searcher_fio',
         'searcher_bmstu_group',
         'classic_event_title',
-        'seacher_VK',
+        'searcher_VK',
     )
     list_display_links = ('searcher_fio',)
 

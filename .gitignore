@@ -533,3 +533,6 @@ pip-selfcheck.json
 .ionide
 
 # End of https://www.toptal.com/developers/gitignore/api/python,pycharm,pycharm+all,pycharm+iml,django,visualstudiocode,venv,backup
+
+
+/rs_back/django_media/
