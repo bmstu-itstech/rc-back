@@ -17,6 +17,7 @@ class ClassicEvent(EventBaseModel):
     partners = models.ManyToManyField(
         Partner,
         verbose_name='партнёры классического мероприятия',
+        blank=True,
     )
 
     class Meta:
@@ -57,11 +58,12 @@ class Questionnaire(models.Model):
     required_competencies = models.TextField(
         'необходимые компетенции',
     )
-    seacher_VK = models.URLField(
+    searcher_VK = models.URLField(
         'ссылка на ВКонтакте соискателя',
     )
     additional = models.TextField(
         'дополнительная информация',
+        blank=True,
     )
     classic_event = models.ForeignKey(
         'ClassicEvent',

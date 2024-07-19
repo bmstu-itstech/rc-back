@@ -46,7 +46,7 @@ class ModelTests(TestCase):
                         searcher_bmstu_group=group,
                         participants_count=5,
                         required_competencies='test',
-                        seacher_VK='https://vk.com',
+                        searcher_VK='https://vk.com',
                         additional='test',
                         classic_event=self.classic_event,
                     )
@@ -76,7 +76,7 @@ class ModelTests(TestCase):
                     searcher_bmstu_group=group,
                     participants_count=5,
                     required_competencies='test',
-                    seacher_VK='https://vk.com',
+                    searcher_VK='https://vk.com',
                     additional='test',
                     classic_event=self.classic_event,
                 )
@@ -105,7 +105,7 @@ class ModelTests(TestCase):
                     searcher_bmstu_group='ИУ9-12Б',
                     participants_count=5,
                     required_competencies='test',
-                    seacher_VK='https://vk.com',
+                    searcher_VK='https://vk.com',
                     additional='test',
                     classic_event=self.classic_event,
                 )
@@ -135,7 +135,7 @@ class ModelTests(TestCase):
                         searcher_bmstu_group='ИУ9-12Б',
                         participants_count=5,
                         required_competencies='test',
-                        seacher_VK='https://vk.com',
+                        searcher_VK='https://vk.com',
                         additional='test',
                         classic_event=self.classic_event,
                     )
