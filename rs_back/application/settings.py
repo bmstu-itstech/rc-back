@@ -48,12 +48,10 @@ INSTALLED_APPS = [
 PROJECT_APPS = [
     "rs_back.achievement",
     "rs_back.core",
-    "rs_back.director",
     "rs_back.events",
     "rs_back.hardathon",
     "rs_back.news",
     "rs_back.partners",
-    "rs_back.static_data",
 ]
 
 INSTALLED_APPS += PROJECT_APPS
