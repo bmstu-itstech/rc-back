@@ -1,6 +1,5 @@
+from django.core.validators import MinValueValidator
 from django.db import models
-from django.db.models.signals import post_save
-from django.dispatch import receiver
 
 from rs_back.core.models import ImageBaseModel
 
@@ -28,10 +27,6 @@ class Achievement(ImageBaseModel):
         'ссылка на СМИ',
         blank=True,
     )
-    is_main = models.BooleanField(
-        'главное достижение',
-        default=False,
-    )
 
     class Meta:
         verbose_name = 'достижение'
@@ -41,52 +36,41 @@ class Achievement(ImageBaseModel):
     def get_all_objects_by_id():
         return Achievement.objects.order_by('-id')
 
-    @staticmethod
-    def get(id):
-        return Achievement.objects.get(id=id)
 
-
-class MainAchievement(models.Model):
+class AchievementOrder(models.Model):
     """!
-    @brief Модель главного достижения (не отображается в админ панели)
+    @brief Модель порядка достижений
 
-    @param main_achievement Достижение, которое является главным
+    @param achievement Достижение
+    @param order Уровень достижения
     """
-    main_achievement = models.ForeignKey(
+    achievement = models.OneToOneField(
         'Achievement',
         on_delete=models.CASCADE,
+        null=True,
+        default=None,
+        blank=True,
+        verbose_name='достижение'
+    )
+    order = models.IntegerField(
+        validators=[MinValueValidator(1)],
+        verbose_name='порядок',
     )
 
-    @staticmethod
-    def create(achievement):
-        new_main_achievement = MainAchievement(
-            main_achievement=achievement
-        )
-        new_main_achievement.save()
+    class Meta:
+        verbose_name = 'порядок достижений'
+        verbose_name_plural = 'порядок достижений'
 
     @staticmethod
-    def update(achievement):
-        last_main_achievement = MainAchievement.objects.latest('id').main_achievement
-        if achievement != last_main_achievement:
-            last_main_achievement.is_main = False
-            last_main_achievement.save()
-        MainAchievement.create(achievement)
+    def generate(count=4):
+        if AchievementOrder.objects.count() == 0:
+            for i in range(count):
+                new_object = AchievementOrder(
+                    order=i + 1,
+                    achievement=None
+                )
+                new_object.save()
 
-
-@receiver(post_save, sender=Achievement)
-def update_main_achievement(sender, instance: Achievement, created, **kwargs):
-    """!
-    @brief Обработчик создания достижения.
-    Предыдущее главное достижение делает обычным, если созданное/изменённое достижение стало главным.
-
-    @param sender: источник сигнала
-    @param instance: созданный объект
-    @param created: признак того, что объект был создан (или изменён)
-    @param kwargs: дополнительные параметры
-    """
-    if not instance.is_main:
-        return
-    if MainAchievement.objects.count() == 0:
-        MainAchievement.create(instance)
-    else:
-        MainAchievement.update(instance)
+    @staticmethod
+    def get_all_objects_by_order():
+        return AchievementOrder.objects.order_by('order')

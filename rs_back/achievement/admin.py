@@ -1,7 +1,8 @@
 from django.contrib import admin
+from django.db import OperationalError
 
-from rs_back.achievement.forms import AchievementForm
-from rs_back.achievement.models import Achievement
+from rs_back.achievement.forms import AchievementForm, AchievementOrderForm
+from rs_back.achievement.models import Achievement, AchievementOrder
 
 
 @admin.register(Achievement)
@@ -26,3 +27,30 @@ class AchievementAdmin(admin.ModelAdmin):
     readonly_fields = ('photo_tmb',)
     form = AchievementForm
     search_fields = ('title',)
+
+
+@admin.register(AchievementOrder)
+class AchievementOrderAdmin(admin.ModelAdmin):
+    """!
+    @brief Админ панель для порядка достижения
+    @param list_display Поля модели, отображаемые на сайте
+    @param list_display_links Поля, являющиеся ссылками на страницу редактирования
+    @param readonly_fields Readonly поля
+    @param form Форма для редактирования/создания
+    @param search_fields Поля поиска
+    """
+    list_display = (
+        'order',
+        'achievement',
+    )
+    list_display_links = ('order', 'achievement',)
+    readonly_fields = ('order',)
+    form = AchievementOrderForm
+    search_fields = ('order', 'achievement',)
+
+    def __init__(self, model, admin_site):
+        try:
+            AchievementOrder.generate()
+        except OperationalError:
+            pass
+        super().__init__(model, admin_site)

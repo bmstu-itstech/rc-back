@@ -1,7 +1,7 @@
 from django import forms
 from django.forms import FileInput, Textarea, TextInput, URLInput
 
-from rs_back.achievement.models import Achievement
+from rs_back.achievement.models import Achievement, AchievementOrder
 
 
 class AchievementForm(forms.ModelForm):
@@ -21,3 +21,13 @@ class AchievementForm(forms.ModelForm):
             'photo_album_url': URLInput,
             'link_to_media': URLInput,
         }
+
+
+class AchievementOrderForm(forms.ModelForm):
+    """!
+    @brief Форма для админ панели порядка достижений
+    """
+
+    class Meta:
+        model = AchievementOrder
+        fields = '__all__'
