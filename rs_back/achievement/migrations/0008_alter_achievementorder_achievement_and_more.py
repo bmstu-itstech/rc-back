@@ -5,6 +5,19 @@ from django.db import migrations, models
 import django.db.models.deletion
 
 
+def forward_func(apps, schema_editor):
+    AchievementOrder = apps.get_model('achievement', 'AchievementOrder')
+    db_alias = schema_editor.connection.alias
+    AchievementOrder.objects.using(db_alias).bulk_create(
+        [
+            AchievementOrder(achievement=None, order=1),
+            AchievementOrder(achievement=None, order=2),
+            AchievementOrder(achievement=None, order=3),
+            AchievementOrder(achievement=None, order=4),
+        ]
+    )
+
+
 class Migration(migrations.Migration):
 
     dependencies = [
@@ -22,4 +35,5 @@ class Migration(migrations.Migration):
             name='order',
             field=models.IntegerField(validators=[django.core.validators.MinValueValidator(1)], verbose_name='порядок'),
         ),
+        migrations.RunPython(forward_func),
     ]

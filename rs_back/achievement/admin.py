@@ -47,10 +47,3 @@ class AchievementOrderAdmin(admin.ModelAdmin):
     readonly_fields = ('order',)
     form = AchievementOrderForm
     search_fields = ('order', 'achievement',)
-
-    def __init__(self, model, admin_site):
-        try:
-            AchievementOrder.generate()
-        except OperationalError:
-            pass
-        super().__init__(model, admin_site)
