@@ -90,4 +90,3 @@ def update_main_achievement(sender, instance: Achievement, created, **kwargs):
         MainAchievement.create(instance)
     else:
         MainAchievement.update(instance)
-
