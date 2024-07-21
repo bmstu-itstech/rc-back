@@ -12,8 +12,7 @@ class AchievementForm(forms.ModelForm):
 
     class Meta:
         model = Achievement
-        fields = ('photo', 'title', 'description',
-                  'photo_album_url', 'link_to_media',)
+        fields = '__all__'
         widgets = {
             'photo': FileInput(attrs={'style': 'border: 1px solid #353535;'
                                                'padding: 5em; border-radius: 4px'}),
