@@ -21,6 +21,11 @@ schema_view = get_schema_view(
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/v0/', include('rs_back.application.urls.api')),
+    path('api/swagger/', TemplateView.as_view(
+        template_name='swagger/swagger.html',
+        extra_context={'schema_url': 'openapi-schema'}
+    ), name='swagger'
+         ),
 ]
 
 if settings.DEBUG:
@@ -28,11 +33,6 @@ if settings.DEBUG:
 
     urlpatterns += [
         path('__debug__', include(debug_toolbar.urls)),
-        path('api/swagger/', TemplateView.as_view(
-            template_name='swagger/swagger.html',
-            extra_context={'schema_url': 'openapi-schema'}
-        ), name='swagger'
-             ),
         path(
             'api/swagger<format>/', schema_view.without_ui(cache_timeout=0),
             name='schema-json'
