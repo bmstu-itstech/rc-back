@@ -26,6 +26,10 @@ urlpatterns = [
         extra_context={'schema_url': 'openapi-schema'}
     ), name='swagger'
          ),
+    path(
+        'api/swagger<format>/', schema_view.without_ui(cache_timeout=0),
+        name='schema-json'
+    ),
 ]
 
 if settings.DEBUG:
@@ -33,10 +37,6 @@ if settings.DEBUG:
 
     urlpatterns += [
         path('__debug__', include(debug_toolbar.urls)),
-        path(
-            'api/swagger<format>/', schema_view.without_ui(cache_timeout=0),
-            name='schema-json'
-        ),
     ]
 
     urlpatterns += static(
