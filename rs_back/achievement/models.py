@@ -5,12 +5,8 @@ from rs_back.core.models import ImageBaseModel
 
 
 class Achievement(ImageBaseModel):
-    """!
-    @brief Модель достижения
-    @param title Название достижения, максимальная длина - 150 символов
-    @param description Описание достижения
-    @param photo_album_url ссылка на фото-альбом
-    @param link_to_media ссылка на СМИ
+    """
+    Модель достижения
     """
     title = models.CharField(
         'название',
@@ -38,11 +34,8 @@ class Achievement(ImageBaseModel):
 
 
 class AchievementOrder(models.Model):
-    """!
-    @brief Модель порядка достижений
-
-    @param achievement Достижение
-    @param order Уровень достижения
+    """
+    Модель порядка достижений
     """
     achievement = models.OneToOneField(
         'Achievement',

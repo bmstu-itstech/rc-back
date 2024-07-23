@@ -5,9 +5,9 @@ from rs_back.achievement.models import Achievement, AchievementOrder
 
 
 class AchievementForm(forms.ModelForm):
-    """!
-    @brief Форма для админ панели достижений
-    @details Нужна для того, чтобы расширить зону загрузки файлов
+    """
+    Форма для админ панели достижений
+    Нужна для того, чтобы расширить зону загрузки файлов
     """
 
     class Meta:
@@ -24,8 +24,8 @@ class AchievementForm(forms.ModelForm):
 
 
 class AchievementOrderForm(forms.ModelForm):
-    """!
-    @brief Форма для админ панели порядка достижений
+    """
+    Форма для админ панели порядка достижений
     """
 
     class Meta:

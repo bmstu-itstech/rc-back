@@ -7,16 +7,8 @@ from rs_back.achievement.models import Achievement, AchievementOrder
 
 @admin.register(Achievement)
 class AchievementAdmin(admin.ModelAdmin):
-    """!
-    @brief Админ панель для достижения
-    @param list_display Поля модели, отображаемые на сайте:
-                        маленькое изображение, название, ссылка на СМИ
-    @param list_display_links Поля, являющиеся ссылками
-                              на страницу редактирования:
-                              маленькое изображение, название
-    @param readonly_fields Readonly поля: изображение
-    @param form Форма для редактирования/создания
-    @param search_fields Поля поиска
+    """
+    Админ панель для достижения
     """
     list_display = (
         'small_photo_tmb',
@@ -31,13 +23,8 @@ class AchievementAdmin(admin.ModelAdmin):
 
 @admin.register(AchievementOrder)
 class AchievementOrderAdmin(admin.ModelAdmin):
-    """!
-    @brief Админ панель для порядка достижения
-    @param list_display Поля модели, отображаемые на сайте
-    @param list_display_links Поля, являющиеся ссылками на страницу редактирования
-    @param readonly_fields Readonly поля
-    @param form Форма для редактирования/создания
-    @param search_fields Поля поиска
+    """
+    Админ панель для порядка достижения
     """
     list_display = (
         'order',
