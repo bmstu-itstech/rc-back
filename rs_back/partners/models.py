@@ -4,10 +4,8 @@ from rs_back.core.models import ImageBaseModel
 
 
 class Partner(ImageBaseModel):
-    """!
-    @brief Модель партнёра
-    @param title Название, максимальная длина - 150 символов
-    @param link Ссылка на сайт
+    """
+    Модель партнёра
     """
     title = models.CharField(
         'название',

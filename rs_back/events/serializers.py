@@ -4,9 +4,9 @@ from rs_back.events.models import ClassicEvent, Questionnaire
 
 
 class ClassicEventsSerializer(serializers.ModelSerializer):
-    """!
-    @brief Сериализатор для всех записей
-    @details Нужен для преобразования сложных типов данных в json
+    """
+    Сериализатор для всех записей
+    Нужен для преобразования сложных типов данных в json
     """
 
     class Meta:
@@ -15,9 +15,9 @@ class ClassicEventsSerializer(serializers.ModelSerializer):
 
 
 class ClassicEventByIdSerializer(serializers.ModelSerializer):
-    """!
-    @brief Сериализатор для одной записи
-    @details Нужен для преобразования сложных типов данных в json
+    """
+    Сериализатор для одной записи
+    Нужен для преобразования сложных типов данных в json
     """
 
     class Meta:
@@ -32,9 +32,9 @@ class ClassicEventByIdSerializer(serializers.ModelSerializer):
 
 
 class QuestionnaireByIdSerializer(serializers.ModelSerializer):
-    """!
-    @brief Сериализатор для одной записи
-    @details Нужен для преобразования сложных типов данных в json
+    """
+    Сериализатор для одной записи
+    Нужен для преобразования сложных типов данных в json
     """
 
     class Meta:
@@ -47,9 +47,9 @@ class QuestionnaireByIdSerializer(serializers.ModelSerializer):
 
 
 class QuestionnairesSerializer(serializers.ModelSerializer):
-    """!
-    @brief Сериализатор для одной записи
-    @details Нужен для преобразования сложных типов данных в json
+    """
+    Сериализатор для одной записи
+    Нужен для преобразования сложных типов данных в json
     """
 
     class Meta:

@@ -5,13 +5,8 @@ from sorl.thumbnail import delete, get_thumbnail
 
 
 class ImageBaseModel(models.Model):
-    """!
-    @brief Базовая модель с изображением
-    @details Класс является абстрактным
-    @param photo Файл изображения, может быть пустым,
-           загружается по пути *photos/%Y/%m/%d*
-    @param photo_tmb Поле изображения
-    @param small_photo_tmb Поле маленького изображения
+    """
+    Базовая модель с изображением. Класс является абстрактным
     """
     photo = models.ImageField(
         'изображение к мероприятию',
@@ -24,19 +19,15 @@ class ImageBaseModel(models.Model):
 
     @property
     def get_photo(self):
-        """!
-        @brief Метод получения изображения
-        @return Возвращает
-        @code
-        get_thumbnail(self.photo, '300x300', crop='center', quality=51)
-        @endcode
+        """
+        Метод получения изображения
         """
         return get_thumbnail(self.photo, '300x300', crop='center', quality=51)
 
     def photo_tmb(self):
-        """!
-        @brief Метод получения тега изображения со ссылкой
-        @return Если изображения нет, то возвращает строку *Нет изображения*.
+        """
+        Метод получения тега изображения со ссылкой
+        Если изображения нет, то возвращает строку *Нет изображения*.
         Если изображение есть, то возвращает тег *<img src="...">*
         """
         if self.photo:
@@ -50,19 +41,15 @@ class ImageBaseModel(models.Model):
 
     @property
     def get_small_photo(self):
-        """!
-        @brief Метод получения изображения маленького размера
-        @return Возвращает
-        @code
-        get_thumbnail(self.photo, '50x50', crop='center', quality=51)
-        @endcode
+        """
+        Метод получения изображения маленького размера
         """
         return get_thumbnail(self.photo, '50x50', crop='center', quality=51)
 
     def small_photo_tmb(self):
-        """!
-        @brief Метод получения тега маленького изображения со ссылкой
-        @return Если изображения нет, то возвращает строку *Нет изображения*.
+        """
+        Метод получения тега маленького изображения со ссылкой
+        Если изображения нет, то возвращает строку *Нет изображения*.
         Если изображение есть, то возвращает тег *<img src="...">*
         """
         if self.photo:
@@ -75,9 +62,8 @@ class ImageBaseModel(models.Model):
     small_photo_tmb.allow_tags = True
 
     def sorl_delete(**kwargs):
-        """!
-        @brief Метод удаления изображения
-        @details Метод вызывается при удалении объекта из базы данных
+        """
+        Метод удаления изображения. Метод вызывается при удалении объекта из базы данных
         """
         delete(kwargs['file'])
 
@@ -88,16 +74,9 @@ class ImageBaseModel(models.Model):
 
 
 class EventBaseModel(ImageBaseModel):
-    """!
-    @brief Базовая модель мероприятия
-    @details Класс наследуется от ImageBaseModel и является абстрактным
-    @param title Название мероприятия, максимальная длина - 150 символов
-    @param description Описание мероприятия
-    @param photo_album_url Ссылка на фото-альбом
-    @param documents_url Ссылка на документы
-    @param location Ссылка на место проведения
-    @param event_date Дата проведения
-    @param social_media_mention Ссылка на упоминание в СМИ
+    """
+    Базовая модель мероприятия
+    Класс наследуется от ImageBaseModel и является абстрактным
     """
     title = models.CharField(
         'название',

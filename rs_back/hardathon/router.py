@@ -11,10 +11,10 @@ from rs_back.hardathon.serializers import (DetailProjectSerializer,
 
 
 class HardathonViewSet(APIView):
-    """!
-    @brief API view для списка хардатонов
-    @details Возвращает json всех хардатонов в порядке их создания или
-        детальную информацию одного хардатона, если дополнительно передать pk объекта
+    """
+    API view для списка хардатонов
+    Возвращает json всех хардатонов в порядке их создания или
+    детальную информацию одного хардатона, если дополнительно передать pk объекта
     """
 
     def get(self, request, pk=None):
@@ -34,10 +34,10 @@ class HardathonViewSet(APIView):
 
 
 class HardathonProjectsViewSet(APIView):
-    """!
-    @brief API view для проектов хардатона
-    @details Возвращает json всех проектов или
-        детальную информацию одного проекта, если дополнительно передать pk объекта
+    """
+    API view для проектов хардатона
+    Возвращает json всех проектов или
+    детальную информацию одного проекта, если дополнительно передать pk объекта
     """
 
     def get(self, request, pk=None):
@@ -57,9 +57,9 @@ class HardathonProjectsViewSet(APIView):
 
 
 class HardathonPartnersViewSet(APIView):
-    """!
-    @brief API view партнёров хардатона
-    @details Возвращает json партнёров хардатона, переданного по pk
+    """
+    API view партнёров хардатона
+    Возвращает json партнёров хардатона, переданного по pk
     """
 
     def get(self, request, pk=None):

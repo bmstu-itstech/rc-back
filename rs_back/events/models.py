@@ -6,10 +6,8 @@ from rs_back.partners.models import Partner
 
 
 class ClassicEvent(EventBaseModel):
-    """!
-    @brief Модель классического мероприятия
-    @param registration_link Ссылка на регистрацию
-    @param partners ManyToMany связь с моделью Partner
+    """
+    Модель классического мероприятия
     """
     registration_link = models.URLField(
         'ссылка на регистрацию',
@@ -30,17 +28,8 @@ class ClassicEvent(EventBaseModel):
 
 
 class Questionnaire(models.Model):
-    """!
-    @brief Модель анкеты
-    @param full_name ФИО соискателя, максимальная длина - 150 символов,
-                     валидатор - ValidateFullName
-    @param group Учебная группа соискателя, максимальная длина - 15 символов,
-                 валидатор - ValidateGroup
-    @param number_of_people Количество людей в команде
-    @param required_competencies Необходимые компетенции
-    @param link_to_vk Ссылка на ВКонтакте соискателя
-    @param additional_information Дополнительная информация
-    @param classic_event ManyToOne связь с моделью ClassicEvent
+    """
+    Модель анкеты
     """
     searcher_fio = models.CharField(
         'фио участника',

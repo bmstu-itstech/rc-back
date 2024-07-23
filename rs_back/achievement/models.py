@@ -4,12 +4,8 @@ from rs_back.core.models import ImageBaseModel
 
 
 class Achievement(ImageBaseModel):
-    """!
-    @brief Модель достижения
-    @param title Название достижения, максимальная длина - 150 символов
-    @param description Описание достижения
-    @param photo_album_url ссылка на фото-альбом
-    @param link_to_media ссылка на СМИ
+    """
+    Модель достижения
     """
     title = models.CharField(
         'название',

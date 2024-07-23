@@ -7,15 +7,8 @@ from rs_back.partners.models import Partner
 
 
 class Hardathon(EventBaseModel):
-    """!
-    @brief Модель хардатона
-    @param application_start_date Дата начала приёма заявок
-    @param date_of_summing_up Дата подведения итогов
-    @param organizers_photo Фото главного организатора, может быть пустым,
-                            загружается в *organizers_photos/%Y/%m/%d*
-    @param organizers_word Ссылка на слово главного организатора
-    @param link_to_competition_task Ссылка на конкурсное задание
-    @param partners ManyToMany связь с моделью Partner
+    """
+    Модель хардатона
     """
     date_for_accepting_applications = models.DateField(
         'дата начала приёма заявок',
@@ -51,21 +44,16 @@ class Hardathon(EventBaseModel):
 
     @property
     def get_photo_org(self):
-        """!
-        @brief Метод получения изображения организатора
-        @return Возвращает
-        @code
-        get_thumbnail(
-            self.organizers_photo, '300x300', crop='center', quality=51)
-        @endcode
+        """
+        Метод получения изображения организатора
         """
         return get_thumbnail(self.main_organizer_photo, '300x300', crop='center',
                              quality=51)
 
     def photo_tmb_org(self):
-        """!
-        @brief Метод получения тега изображения организатора со ссылкой
-        @return Если изображения нет, то возвращает строку *Нет изображения*.
+        """
+        Метод получения тега изображения организатора со ссылкой
+        Если изображения нет, то возвращает строку *Нет изображения*.
         Если изображение есть, то возвращает тег *<img src="...">*
         """
         if self.main_organizer_photo:
@@ -79,22 +67,16 @@ class Hardathon(EventBaseModel):
 
     @property
     def get_small_photo_org(self):
-        """!
-        @brief Метод получения изображения организатора маленького размера
-        @return Возвращает
-        @code
-        get_thumbnail(
-            self.organizers_photo, '50x50', crop='center', quality=51)
-        @endcode
+        """
+        Метод получения изображения организатора маленького размера
         """
         return get_thumbnail(self.main_organizer_photo, '50x50', crop='center',
                              quality=51)
 
     def small_photo_tmb_org(self):
-        """!
-        @brief Метод получения тега маленького изображения организатора
-               со ссылкой
-        @return Если изображения нет, то возвращает строку *Нет изображения*.
+        """
+        Метод получения тега маленького изображения организатора со ссылкой
+        Если изображения нет, то возвращает строку *Нет изображения*.
         Если изображение есть, то возвращает тег *<img src="...">*
         """
         if self.main_organizer_photo:
@@ -112,6 +94,9 @@ class Hardathon(EventBaseModel):
 
 
 class Project(ImageBaseModel):
+    """
+    Модель проекта
+    """
     title = models.CharField(
         'название',
         max_length=150,

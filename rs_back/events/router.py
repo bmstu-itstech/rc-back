@@ -10,10 +10,10 @@ from rs_back.events.serializers import (ClassicEventByIdSerializer,
 
 
 class ClassicEventViewSet(APIView):
-    """!
-    @brief API view для классических мероприятий
-    @details Возвращает json всех мероприятий или детальную информацию одного мероприятия,
-        если дополнительно передать pk объекта
+    """
+    API view для классических мероприятий
+    Возвращает json всех мероприятий или детальную информацию одного мероприятия,
+    если дополнительно передать pk объекта
     """
 
     def get(self, request, pk=None):
@@ -33,10 +33,10 @@ class ClassicEventViewSet(APIView):
 
 
 class QuestionnaireViewSet(APIView):
-    """!
-    @brief API view для анкеты
-    @details Возвращает json всех анкет или детальную информацию одной анкеты,
-        если дополнительно передать pk объекта
+    """
+    API view для анкеты
+    Возвращает json всех анкет или детальную информацию одной анкеты,
+    если дополнительно передать pk объекта
     """
 
     def get(self, request, pk=None):

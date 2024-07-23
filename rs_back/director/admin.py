@@ -6,16 +6,8 @@ from rs_back.director.models import Director
 
 @admin.register(Director)
 class DirectorAdmin(admin.ModelAdmin):
-    """!
-    @brief Админ панель для руководителя
-    @param list_display Поля модели, отображаемые на сайте:
-                        маленькое изображение, ФИО, email, должность
-    @param list_display_links Поля, являющиеся ссылками
-                              на страницу редактирования:
-                              маленькое изображение, ФИО
-    @param readonly_fields Readonly поля: изображение
-    @param form Форма для редактирования/создания
-    @param search_fields Поля поиска
+    """
+    Админ панель для руководителя
     """
     list_display = (
         'small_photo_tmb',

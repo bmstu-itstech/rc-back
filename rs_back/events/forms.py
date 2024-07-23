@@ -5,6 +5,10 @@ from rs_back.events.models import ClassicEvent
 
 
 class ClassicEventForm(forms.ModelForm):
+    """
+    Форма для админ панели событий
+    Нужна для того, чтобы расширить зону загрузки файлов
+    """
     class Meta:
         model = ClassicEvent
         fields = '__all__'

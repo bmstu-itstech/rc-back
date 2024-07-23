@@ -4,9 +4,8 @@ from rs_back.achievement.models import Achievement
 
 
 class AchievementSerializer(serializers.ModelSerializer):
-    """!
-    @brief Сериализатор
-    @details Нужен для преобразования сложных типов данных в json
+    """
+    Сериализатор. Нужен для преобразования сложных типов данных в json
     """
 
     class Meta:

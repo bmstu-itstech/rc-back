@@ -6,9 +6,8 @@ from rs_back.achievement.serializers import AchievementSerializer
 
 
 class AchievementViewSet(APIView):
-    """!
-    @brief API view для достижений
-    @details Возвращает json всех достижений в порядке их создания
+    """
+    API view для достижений. Возвращает json всех достижений в порядке их создания
     """
 
     def get(self, request, format=None):

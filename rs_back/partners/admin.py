@@ -6,6 +6,9 @@ from rs_back.partners.models import Partner
 
 @admin.register(Partner)
 class PartnerAdmin(admin.ModelAdmin):
+    """
+    Админ панель для партнёров
+    """
     list_display = (
         'small_photo_tmb',
         'title',

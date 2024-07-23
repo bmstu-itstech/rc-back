@@ -5,9 +5,9 @@ from rs_back.partners.models import Partner
 
 
 class HardathonSerializer(serializers.ModelSerializer):
-    """!
-    @brief Сериализатор
-    @details Нужен для преобразования сложных типов данных в json
+    """
+    Сериализатор
+    Нужен для преобразования сложных типов данных в json
     """
 
     class Meta:
@@ -16,9 +16,9 @@ class HardathonSerializer(serializers.ModelSerializer):
 
 
 class HardathonByIdSerializer(serializers.ModelSerializer):
-    """!
-    @brief Сериализатор для одной записи
-    @details Нужен для преобразования сложных типов данных в json
+    """
+    Сериализатор для одной записи
+    Нужен для преобразования сложных типов данных в json
     """
 
     class Meta:
@@ -32,9 +32,9 @@ class HardathonByIdSerializer(serializers.ModelSerializer):
 
 
 class DetailProjectSerializer(serializers.ModelSerializer):
-    """!
-    @brief Сериализатор
-    @details Нужен для преобразования сложных типов данных в json
+    """
+    Сериализатор
+    Нужен для преобразования сложных типов данных в json
     """
 
     class Meta:
@@ -44,9 +44,9 @@ class DetailProjectSerializer(serializers.ModelSerializer):
 
 
 class HardathonProjectsSerializer(serializers.ModelSerializer):
-    """!
-    @brief Сериализатор
-    @details Нужен для преобразования сложных типов данных в json
+    """
+    Сериализатор
+    Нужен для преобразования сложных типов данных в json
     """
 
     class Meta:
@@ -55,9 +55,9 @@ class HardathonProjectsSerializer(serializers.ModelSerializer):
 
 
 class HardathonPartnersSerializer(serializers.ModelSerializer):
-    """!
-    @brief Сериализатор
-    @details Нужен для преобразования сложных типов данных в json
+    """
+    Сериализатор
+    Нужен для преобразования сложных типов данных в json
     """
 
     class Meta:

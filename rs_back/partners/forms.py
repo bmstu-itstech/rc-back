@@ -5,6 +5,10 @@ from rs_back.partners.models import Partner
 
 
 class PartnerForm(forms.ModelForm):
+    """
+    Форма для админ панели партёров
+    Нужна для того, чтобы расширить зону загрузки файлов
+    """
     class Meta:
         model = Partner
         fields = '__all__'

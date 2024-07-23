@@ -4,11 +4,8 @@ from rs_back.core.models import ImageBaseModel
 
 
 class News(ImageBaseModel):
-    """!
-    @brief Модель новости
-    @param title Название, максимальная длина - 150 символов
-    @param description Описание
-    @param new_url Ссылка на новость
+    """
+    Модель новости
     """
     title = models.CharField(
         'название',

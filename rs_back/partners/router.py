@@ -6,9 +6,9 @@ from rs_back.partners.serializers import PartnerSerializer
 
 
 class PartnerViewSet(APIView):
-    """!
-    @brief API view для партнёров
-    @details Возвращает json всех партнёров в порядке их создания
+    """
+    API view для партнёров
+    Возвращает json всех партнёров в порядке их создания
     """
 
     def get(self, request, format=None):
