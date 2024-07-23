@@ -4,11 +4,8 @@ from rs_back.core.models import ImageBaseModel
 
 
 class Director(ImageBaseModel):
-    """!
-    @brief Модель руководителя
-    @param fio ФИО, максимальная длина - 150 символов
-    @param email Email, максимальная длина - 150 символов
-    @param role Должность, максимальная длина - 150 символов
+    """
+    Модель руководителя
     """
     fio = models.CharField(
         'ФИО',

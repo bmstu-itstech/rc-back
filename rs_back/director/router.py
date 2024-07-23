@@ -5,11 +5,9 @@ from rs_back.director.serializers import DirectorSerializer
 
 
 class DirectorViewSet(viewsets.ModelViewSet):
-    """!
-    @brief Роутер для руководителей
-    @details Нужен для автоматической маршрутизации
-    @param queryset Список всех объектов из базы данных
-    @param serializer_class Сериализатор
+    """
+    Роутер для руководителей
+    Нужен для автоматической маршрутизации
     """
     queryset = Director.get_all_objects_by_id()
     serializer_class = DirectorSerializer

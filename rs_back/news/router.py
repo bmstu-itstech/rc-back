@@ -6,9 +6,9 @@ from rs_back.news.serializers import NewsSerializer
 
 
 class NewsViewSet(APIView):
-    """!
-    @brief API view для новостей
-    @details Возвращает json всех новостей в порядке их создания
+    """
+    API view для новостей
+    Возвращает json всех новостей в порядке их создания
     """
 
     def get(self, request, format=None):

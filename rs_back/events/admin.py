@@ -6,6 +6,9 @@ from rs_back.events.models import ClassicEvent, Questionnaire
 
 @admin.register(ClassicEvent)
 class ClassicEventAdmin(admin.ModelAdmin):
+    """
+    Админ панель для событий
+    """
     list_display = ('small_photo_tmb', 'title',)
     list_display_links = ('title', 'small_photo_tmb',)
     filter_horizontal = ('partners',)
@@ -15,6 +18,9 @@ class ClassicEventAdmin(admin.ModelAdmin):
 
 @admin.register(Questionnaire)
 class QuestionnaireAdmin(admin.ModelAdmin):
+    """
+    Админ панель для анкет
+    """
     list_display = (
         'searcher_fio',
         'searcher_bmstu_group',

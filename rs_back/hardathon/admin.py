@@ -6,6 +6,9 @@ from rs_back.hardathon.models import Hardathon, Project
 
 @admin.register(Project)
 class ProjectAdmin(admin.ModelAdmin):
+    """
+    Админ панель для проектов
+    """
     list_display = (
         'small_photo_tmb',
         'title',
@@ -23,6 +26,9 @@ class ProjectAdmin(admin.ModelAdmin):
 
 @admin.register(Hardathon)
 class HardathonAdmin(admin.ModelAdmin):
+    """
+    Админ панель для хардатонов
+    """
     list_display = (
         'small_photo_tmb',
         'title',

@@ -5,6 +5,10 @@ from rs_back.hardathon.models import Hardathon, Project
 
 
 class HardathonForm(forms.ModelForm):
+    """
+    Форма для админ панели хардатонов
+    Нужна для того, чтобы расширить зону загрузки файлов
+    """
     class Meta:
         model = Hardathon
         fields = '__all__'
@@ -23,6 +27,10 @@ class HardathonForm(forms.ModelForm):
 
 
 class ProjectForm(forms.ModelForm):
+    """
+    Форма для админ панели проектов
+    Нужна для того, чтобы расширить зону загрузки файлов
+    """
     class Meta:
         model = Project
         fields = '__all__'

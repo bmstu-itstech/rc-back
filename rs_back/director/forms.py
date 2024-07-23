@@ -5,9 +5,9 @@ from rs_back.director.models import Director
 
 
 class DirectorForm(forms.ModelForm):
-    """!
-    @brief Форма для админ панели руководителей
-    @details Нужна для того, чтобы расширить зону загрузки файлов
+    """
+    Форма для админ панели руководителей
+    Нужна для того, чтобы расширить зону загрузки файлов
     """
 
     class Meta:

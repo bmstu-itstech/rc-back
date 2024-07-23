@@ -4,9 +4,9 @@ from rs_back.director.models import Director
 
 
 class DirectorSerializer(serializers.ModelSerializer):
-    """!
-    @brief Сериализатор
-    @details Нужен для преобразования сложных типов данных в json
+    """
+    Сериализатор
+    Нужен для преобразования сложных типов данных в json
     """
 
     class Meta:

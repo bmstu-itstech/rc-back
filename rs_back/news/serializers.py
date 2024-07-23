@@ -4,9 +4,9 @@ from rs_back.news.models import News
 
 
 class NewsSerializer(serializers.ModelSerializer):
-    """!
-    @brief Сериализатор
-    @details Нужен для преобразования сложных типов данных в json
+    """
+    Сериализатор
+    Нужен для преобразования сложных типов данных в json
     """
 
     class Meta:
