@@ -2,6 +2,9 @@ import sys
 from pathlib import Path
 
 import environ
+from dotenv import load_dotenv
+
+load_dotenv()
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -13,7 +16,6 @@ environ.Env.read_env(env.str("ENV_PATH", str(env_path)))
 
 VERSION = env.str("VERSION", default="0.1.0")
 SECRET_KEY = env.str("SECRET_KEY", default="my-secret-key")
-LOCAL_MEDIA = env.bool("LOCAL_MEDIA", default=False)
 DEBUG = env.bool("DEBUG", default=False)
 if PYTEST:
     DEBUG = False
@@ -74,7 +76,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            'core/templates'
+            'rs_back/core/templates'
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -91,11 +93,22 @@ TEMPLATES = [
 WSGI_APPLICATION = 'rs_back.application.wsgi.application'
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
+    "tests": {
+        "ENGINE": "django.db.backends.sqlite3",
         'NAME': BASE_DIR / 'db.sqlite3',
     },
+    "main": {
+        "ENGINE": "django.db.backends.postgresql_psycopg2",
+        "NAME": env.str("POSTGRES_DB", default="postgres"),
+        "USER": env.str("POSTGRES_USER", default="postgres"),
+        "PASSWORD": env.str("POSTGRES_PASSWORD", default="postgres"),
+        "HOST": env.str("POSTGRES_HOST", default="127.0.0.1"),
+        "PORT": env.str("POSTGRES_PORT", default="5432"),
+    },
 }
+
+default_db = env.str("DJANGO_DB", default="tests")
+DATABASES["default"] = DATABASES.get(default_db)
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -124,10 +137,10 @@ USE_I18N = True
 
 USE_TZ = True
 
-STATIC_URL = "/dj_static/"
-MEDIA_URL = "/dj_media/"
-STATIC_ROOT = BASE_DIR / "dj_static"
-MEDIA_ROOT = BASE_DIR / "dj_media"
+STATIC_URL = "/django_static/"
+MEDIA_URL = "/django_media/"
+STATIC_ROOT = BASE_DIR / "django_static"
+MEDIA_ROOT = BASE_DIR / "django_media"
 
 STATICFILES_FINDERS = (
     "django.contrib.staticfiles.finders.FileSystemFinder",
