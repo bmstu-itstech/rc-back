@@ -92,10 +92,15 @@ WSGI_APPLICATION = 'rs_back.application.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    },
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'mysecretpassword',
+        'HOST': '80.87.201.77',
+        'PORT': '5432',
+    }
 }
+
 
 AUTH_PASSWORD_VALIDATORS = [
     {
