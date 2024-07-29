@@ -28,7 +28,7 @@ class HardathonByIdSerializer(serializers.ModelSerializer):
                   'date_for_accepting_applications',
                   'closing_date_for_applications',
                   'summing_up_date', 'main_organizer_photo',
-                  'main_organizer_word', 'competition_task',)
+                  'main_organizer_word', 'competition_task', 'competition_rules')
 
 
 class DetailProjectSerializer(serializers.ModelSerializer):
@@ -39,7 +39,7 @@ class DetailProjectSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Project
-        fields = ('id', 'title', 'description', 'competition_rules',
+        fields = ('id', 'title', 'description',
                   'implementation_scale', 'photo',)
 
 
