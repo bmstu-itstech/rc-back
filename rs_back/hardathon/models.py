@@ -17,6 +17,9 @@ class Hardathon(EventBaseModel):
     @param link_to_competition_task Ссылка на конкурсное задание
     @param partners ManyToMany связь с моделью Partner
     """
+    competition_rules = models.TextField(
+        'правила соревнования',
+    )
     date_for_accepting_applications = models.DateField(
         'дата начала приёма заявок',
     )
@@ -119,9 +122,6 @@ class Project(ImageBaseModel):
     )
     description = models.TextField(
         'описание',
-    )
-    competition_rules = models.TextField(
-        'правила соревнования',
     )
     implementation_scale = models.TextField(
         'масштаб реализации',

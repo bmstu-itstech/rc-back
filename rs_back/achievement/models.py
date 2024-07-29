@@ -1,15 +1,12 @@
+from django.core.validators import MinValueValidator
 from django.db import models
 
 from rs_back.core.models import ImageBaseModel
 
 
 class Achievement(ImageBaseModel):
-    """!
-    @brief Модель достижения
-    @param title Название достижения, максимальная длина - 150 символов
-    @param description Описание достижения
-    @param photo_album_url ссылка на фото-альбом
-    @param link_to_media ссылка на СМИ
+    """
+    Модель достижения
     """
     title = models.CharField(
         'название',
@@ -34,3 +31,39 @@ class Achievement(ImageBaseModel):
     @staticmethod
     def get_all_objects_by_id():
         return Achievement.objects.order_by('-id')
+
+
+class AchievementOrder(models.Model):
+    """
+    Модель порядка достижений
+    """
+    achievement = models.OneToOneField(
+        'Achievement',
+        on_delete=models.CASCADE,
+        null=True,
+        default=None,
+        blank=True,
+        verbose_name='достижение'
+    )
+    order = models.IntegerField(
+        validators=[MinValueValidator(1)],
+        verbose_name='порядок',
+    )
+
+    class Meta:
+        verbose_name = 'порядок достижений'
+        verbose_name_plural = 'порядок достижений'
+
+    @staticmethod
+    def generate(count=4):
+        if AchievementOrder.objects.count() == 0:
+            for i in range(count):
+                new_object = AchievementOrder(
+                    order=i + 1,
+                    achievement=None
+                )
+                new_object.save()
+
+    @staticmethod
+    def get_all_objects_by_order():
+        return AchievementOrder.objects.order_by('order')
