@@ -33,7 +33,7 @@ class Hardathon(EventBaseModel):
         upload_to='organizers_photos/%Y/%m/%d',
         blank=True,
     )
-    main_organizer_word = models.URLField(
+    main_organizer_word = models.TextField(
         'слово главного организатора',
     )
     competition_task = models.URLField(
